@@ -20,8 +20,8 @@ function filterTable(selector, options) {
 				}
 			});
 			if (needprocess) {
-        processFilters(categories);
-      }
+				processFilters(categories);
+			}
 			categories.show();
 		}
 		else {
@@ -45,7 +45,7 @@ function filterTable(selector, options) {
 		var t			= categories.parent().parent().parent().parent().parent(),
 			categoryID	= parseInt(categories.attr('categoryID')),
 			filterData	= jQuery.data(t[0], 'filterData'),
-			idx			= $.inArray(categoryID, filterData);
+			idx		= $.inArray(categoryID, filterData);
 		if (idx !== -1) {
 			filterData.splice(idx, 1);
 		}
