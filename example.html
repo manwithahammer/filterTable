@@ -1,0 +1,51 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Filter Table Test</title>
+    <link rel="stylesheet" href="https://rawgithub.com/manwithahammer/filterTable/master/filtertable.css" />
+	<style>
+		table, th, td {
+			border: 1px solid black;
+		}
+		
+		table {
+			border-collapse:collapse;
+		}
+	</style>
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <!-- <script src="https://rawgithub.com/manwithahammer/filterTable/master/filtertable.js"></script> -->
+    <script src="filtertable.js"></script>
+	<script>
+		$(function() {
+			var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+				words = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'],
+				dates = [
+					new Date('1/1/2014'), new Date( '2/1/2014'), new Date(' 3/1/2014'), new Date( '4/1/2014'),
+					new Date('5/1/2014'), new Date( '6/1/2014'), new Date(' 7/1/2014'), new Date( '8/1/2014'),
+					new Date('9/1/2014'), new Date('10/1/2014'), new Date('11/1/2014'), new Date('12/1/2014')
+				],
+				tbody = $('<tbody>'),
+				table = $('<table>')
+					.append($('<thead>')
+						.append($('<tr>')
+							.append($('<th>').text('Numbers'))
+							.append($('<th>').text('Words'))
+							.append($('<th>').text('Dates'))
+						)
+					)
+					.append(tbody);
+			for (var i = 0; i < 30; ++i) {
+				tbody.append($('<tr>')
+					.append($('<td>').text(numbers[Math.round(Math.random() * (numbers.length - 1), 0)]))
+					.append($('<td>').text(words[Math.round(Math.random() * (words.length - 1), 0)]))
+					.append($('<td>').text(dates[Math.round(Math.random() * (dates.length - 1), 0)]))
+				)
+			}
+			$('body').append(table);
+			filterTable(table);
+		});
+	</script>
+  </head>
+  <body>
+  </body>
+</html>

@@ -1,4 +1,11 @@
 function filterTable(selector, options) {
+	function unique(a) {
+		return a.reduce(function(p, c) {
+			if (p.indexOf(c) < 0) p.push(c);
+			return p;
+		}, []);
+	}
+	
   function toggleFilters(header, isOn) {
 		header.find('img[src="filter_on.png"]')[isOn ? 'show' : 'hide']();
 		header.find('img[src="filter_off.png"]')[isOn ? 'hide' : 'show']()
